@@ -1,0 +1,16 @@
+version: "3.9"
+
+volumes:
+  node-data:
+
+services:
+  node:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: "node"
+    restart: "always"
+    ports:
+      - "4000:4000"
+    volumes:
+      - "node-data:/var/lib/server"
